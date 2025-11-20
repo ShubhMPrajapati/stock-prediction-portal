@@ -22,5 +22,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     
     # Base API endpoint
-    path('api/v1/', include('api.urls'))
+    path('api/v1/', include('api.urls')),
+    
+    # Web application endpoints
+    
 ]
