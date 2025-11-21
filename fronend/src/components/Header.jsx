@@ -1,7 +1,7 @@
 import { Button } from "./Button"
 import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react"
-import { AuthContext } from "../AuthProvider"   
+import { AuthContext } from "../AuthProvider"; 
 
 export const Header = () => {
   const { isLoggedIn, setIsloggedIn } = useContext(AuthContext)
@@ -18,8 +18,11 @@ export const Header = () => {
     <div className='navbar container pt-3 pb-3 align-items-start'>
       <Link className="navbar-brand text-light" to="/">Stock Prediction Portal</Link>
       <div>
-        {isLoggedIn ? (
+        {isLoggedIn ? (<>
+          <Button url='/dashboard' text='Dashboard' class='btn-info'/> 
+          &nbsp;
           <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <>
             <Button class='btn-outline-info' text='Login' url="/login" />

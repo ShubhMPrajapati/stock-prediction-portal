@@ -47,7 +47,7 @@ export const Login = () => {
       // Clear fields and navigate
       setUsername("");
       setPassword("");
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err?.response?.data || err.message);
       // DRF returns detail for auth errors, fallback to generic message
