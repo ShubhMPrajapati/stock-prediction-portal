@@ -95,7 +95,7 @@ export const Dashboard = () => {
         {
           label: "Next 5 Days Forecast",
           data: next5Days,
-          fill: false,
+          fill: true,
           borderColor: "rgb(75, 192, 192)",
           backgroundColor: "rgba(75, 192, 192, 0.2)",
           tension: 0.3,
@@ -104,7 +104,10 @@ export const Dashboard = () => {
     };
     const options = {
       responsive: true,
-      plugins: { legend: { position: "top" }, title: { display: true, text: "Next 5 Days Forecast" } },
+      plugins: {
+        legend: { position: "top" },
+        title: { display: true, text: "Next 5 Days Forecast" },
+      },
     };
     return <Line data={chartData} options={options} />;
   };
@@ -128,14 +131,22 @@ export const Dashboard = () => {
                 />
                 {error && <div className="text-danger mb-2">{error}</div>}
                 <button className="btn btn-info w-100" disabled={loading}>
-                  {loading ? <><FontAwesomeIcon icon={faSpinner} spin /> Please wait...</> : "Get Prediction"}
+                  {loading ? (
+                    <>
+                      <FontAwesomeIcon icon={faSpinner} spin /> Please wait...
+                    </>
+                  ) : (
+                    "Get Prediction"
+                  )}
                 </button>
               </form>
 
               {data && (
                 <>
                   <div className="mb-3">
-                    <h5>Current Price: <span className="text-success">${data.current_price.toFixed(2)}</span></h5>
+                    <h5>
+                      Current Price: <span className="text-success">${data.current_price.toFixed(2)}</span>
+                    </h5>
                   </div>
 
                   <div className="mb-3">
@@ -156,7 +167,6 @@ export const Dashboard = () => {
           </div>
         </div>
 
-        {/* Right column: plots */}
         <div className="col-lg-6">
           {Object.keys(plots).map((key) => (
             <div key={key} className="card shadow-sm mb-4">
@@ -166,6 +176,9 @@ export const Dashboard = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="col-md-6">
+          Thank You
         </div>
       </div>
     </div>

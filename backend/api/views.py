@@ -4,14 +4,12 @@ from .serializers import StockPredictionSerializers
 from rest_framework import status
 from rest_framework.response import Response
 import yfinance as yf
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
 from .utils import save_plot
 from keras.models import load_model
 import joblib
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Load model and scaler once
