@@ -16,7 +16,5 @@ urlpatterns = [
     path('protected-view/', UserViews.ProtectedView.as_view()),
     
     ## Preditcion APi
-    path('predict/', StockPredictionApiView.as_view(), name='stock_prediction')
-    
-    
+    path('predict/', StockPredictionApiView.as_view(), name='stock_prediction'),
 ]
